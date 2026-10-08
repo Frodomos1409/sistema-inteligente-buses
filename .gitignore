@@ -1,0 +1,26 @@
+# Dependencias
+vendor/
+node_modules/
+.dart_tool/
+build/
+
+# Variables de entorno
+.env
+.env.*
+!.env.example
+
+# Artefactos locales
+dist/
+coverage/
+*.log
+
+# Sistema e IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# APK release permitido por el curso
+*.apk
+!movil/releases/*.apk
+
