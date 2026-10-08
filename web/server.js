@@ -1,8 +1,9 @@
 import { createServer } from "node:http";
 import { readFile } from "node:fs/promises";
 import { extname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const root = new URL("./src/", import.meta.url);
+const root = fileURLToPath(new URL("./src/", import.meta.url));
 const types = {
   ".html": "text/html; charset=utf-8",
   ".css": "text/css; charset=utf-8",
@@ -11,7 +12,7 @@ const types = {
 
 const server = createServer(async (req, res) => {
   const path = req.url === "/" ? "index.html" : req.url.slice(1);
-  const filePath = join(root.pathname, path);
+  const filePath = join(root, path);
 
   try {
     const content = await readFile(filePath);
